@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Marks and GPA</title>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .label {
+            flex: 1;
+        }
+        .input {
+            flex: 2;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="inputForm">
+    <h2>Subject Marks</h2>
+    <div class="row">
+        <div class="label">Subject 1:</div>
+        <div class="input"><input type="number" id="subject1" /></div>
+    </div>
+    <div class="row">
+        <div class="label">Subject 2:</div>
+        <div class="input"><input type="number" id="subject2" /></div>
+    </div>
+    <div class="row">
+        <div class="label">Subject 3:</div>
+        <div class="input"><input type="number" id="subject3" /></div>
+    </div>
+    <div class="row">
+        <div class="label">Subject 4:</div>
+        <div class="input"><input type="number" id="subject4" /></div>
+    </div>
+    <button onclick="calculateGPA()">Submit</button>
+</div>
+
+<div class="container hide" id="resultsTable">
+    <h2>Subject Marks and GPA</h2>
+    <table border="1" width="100%">
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>subject1</td>
+            <td id="resSubject1"></td>
+        </tr>
+        <tr>
+            <td>subject2</td>
+            <td id="resSubject2"></td>
+        </tr>
+        <tr>
+            <td>subject3</td>
+            <td id="resSubject3"></td>
+        </tr>
+        <tr>
+            <td>subject4</td>
+            <td id="resSubject4"></td>
+        </tr>
+        <tr>
+            <td>Overall GPA:</td>
+            <td id="gpa"></td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function calculateGPA() {
+        // Get the marks from the input fields
+        var marks1 = document.getElementById('subject1').value;
+        var marks2 = document.getElementById('subject2').value;
+        var marks3 = document.getElementById('subject3').value;
+        var marks4 = document.getElementById('subject4').value;
+        
+        // Calculate the GPA
+        var gpa = (parseFloat(marks1) + parseFloat(marks2) + parseFloat(marks3) + parseFloat(marks4)) / 10 /4;
+        
+        // Set the marks and GPA in the results table
+        document.getElementById('resSubject1').textContent = marks1;
+        document.getElementById('resSubject2').textContent = marks2;
+        document.getElementById('resSubject3').textContent = marks3;
+        document.getElementById('resSubject4').textContent = marks4;
+        document.getElementById('gpa').textContent = gpa.toFixed(2); // Round to 2 decimal places
+        
+        // Hide the form and show the results table
+        document.getElementById('inputForm').classList.add('hide');
+        document.getElementById('resultsTable').classList.remove('hide');
+    }
+</script>
+
+</body>
+</html>

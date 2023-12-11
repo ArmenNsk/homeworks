@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Form</title>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Addition Form</h2>
+    <div class="form-group">
+        <label for="number1">Enter Number 1:</label>
+        <input type="number" id="number1">
+    </div>
+    <div class="form-group">
+        <label for="number2">Enter Number 2:</label>
+        <input type="number" id="number2">
+    </div>
+    <div class="form-group">
+        <label for="result">Result:</label>
+        <input type="text" id="result" readonly>
+    </div>
+    <input type="button" value="Submit" onclick="addNumbers()">
+</div>
+
+<script>
+    function addNumbers() {
+        var num1 = document.getElementById('number1').value;
+        var num2 = document.getElementById('number2').value;
+        var sum = parseFloat(num1) + parseFloat(num2);
+        document.getElementById('result').value = sum;
+    }
+</script>
+
+</body>
+</html>
